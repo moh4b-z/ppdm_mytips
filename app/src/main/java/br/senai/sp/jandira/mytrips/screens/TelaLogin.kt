@@ -66,12 +66,19 @@ fun TelaLogin(
             ),
 
         ) { }
-        Column {
+        Column (
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(500.dp)
+                .padding(22.dp),
+            verticalArrangement = Arrangement.SpaceBetween
+        ){
             Column {
                 Text(
                     text = stringResource(R.string.Login),
                     fontSize = 48.sp,
-                    color = Color(0xFF691BB9)
+                    color = Color(0xFF691BB9),
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = stringResource(R.string.bottomTextLogin),
@@ -81,6 +88,10 @@ fun TelaLogin(
             }
             Column (
                 modifier = Modifier
+                    .fillMaxWidth()
+                    .height(300.dp),
+                verticalArrangement = Arrangement.SpaceBetween,
+                horizontalAlignment = Alignment.End
             ){
                 OutlinedTextField(
                     value = "",
@@ -135,7 +146,11 @@ fun TelaLogin(
                         contentDescription = ""
                     )
                 }
-                Row {
+                Row (
+                    modifier = Modifier
+                        .width(300.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ){
                     Text(
                         text = stringResource(R.string.whatSignUp),
                         fontSize = 20.sp,
