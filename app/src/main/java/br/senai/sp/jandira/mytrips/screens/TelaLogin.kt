@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -28,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -42,6 +46,7 @@ fun TelaLogin(
     modifier: Modifier = Modifier
 ) {
     Box(
+        contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
             .background(
@@ -50,8 +55,9 @@ fun TelaLogin(
     ) {
         Card(
             modifier = Modifier
-                .width(50.dp)
-                .height(50.dp),
+                .width(100.dp)
+                .height(50.dp)
+                .align(alignment = Alignment.TopEnd),
             shape = RoundedCornerShape(
                 bottomStart = 10.dp
             ),
@@ -68,12 +74,14 @@ fun TelaLogin(
                     color = Color(0xFF691BB9)
                 )
                 Text(
-                    text = stringResource(R.string.Login),
-                    fontSize = 24.sp,
+                    text = stringResource(R.string.bottomTextLogin),
+                    fontSize = 20.sp,
                     color = Color(0xFF6E6E6E)
                 )
             }
-            Column {
+            Column (
+                modifier = Modifier
+            ){
                 OutlinedTextField(
                     value = "",
                     onValueChange = {},
@@ -82,7 +90,14 @@ fun TelaLogin(
                     shape = RoundedCornerShape(16.dp),
                     label = {
                         Text(
-                            text = stringResource(R.string.whatname)
+                            text = stringResource(R.string.whatEmail)
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.Email,
+                            contentDescription = "",
+                            tint = Color(0xFF691BB9)
                         )
                     }
                 )
@@ -94,7 +109,14 @@ fun TelaLogin(
                     shape = RoundedCornerShape(16.dp),
                     label = {
                         Text(
-                            text = stringResource(R.string.whatname)
+                            text = stringResource(R.string.whatPassword)
+                        )
+                    },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = "",
+                            tint = Color(0xFF691BB9)
                         )
                     }
                 )
@@ -106,31 +128,33 @@ fun TelaLogin(
 
                 ) {
                     Text(
-                        text = stringResource(R.string.next)
+                        text = stringResource(R.string.SIGN_IN)
                     )
                     Icon(
                         imageVector = Icons.Filled.ArrowForward,
                         contentDescription = ""
                     )
                 }
+                Row {
+                    Text(
+                        text = stringResource(R.string.whatSignUp),
+                        fontSize = 20.sp,
+                        color = Color(0xFF6E6E6E)
+                    )
+                    Text(
+                        text = stringResource(R.string.SignUp),
+                        fontSize = 22.sp,
+                        color = Color(0xFF691BB9)
+                    )
+                }
             }
-            Row {
-                Text(
-                    text = stringResource(R.string.Login),
-                    fontSize = 24.sp,
-                    color = Color(0xFF6E6E6E)
-                )
-                Text(
-                    text = stringResource(R.string.Login),
-                    fontSize = 24.sp,
-                    color = Color(0xFF691BB9)
-                )
-            }
+
         }
         Card(
             modifier = Modifier
-                .width(50.dp)
-                .height(50.dp),
+                .width(100.dp)
+                .height(50.dp)
+                .align(alignment = Alignment.BottomStart),
             shape = RoundedCornerShape(
                 topEnd = 10.dp
             ),
