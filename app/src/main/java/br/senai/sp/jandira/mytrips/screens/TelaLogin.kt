@@ -5,15 +5,21 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -28,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.senai.sp.jandira.mytrips.R
 
 
 @Composable
@@ -38,15 +45,99 @@ fun TelaLogin(
         modifier = Modifier
             .fillMaxSize()
             .background(
-                brush = Brush.linearGradient(
-                    listOf(
-                        Color(0xFF5608A4),
-                        Color(0xFFBA88FF)
-                    )
-                )
+                        Color(0xFFFFFFFF),
             )
     ) {
+        Card(
+            modifier = Modifier
+                .width(50.dp)
+                .height(50.dp),
+            shape = RoundedCornerShape(
+                bottomStart = 10.dp
+            ),
+            colors = CardDefaults.cardColors(
+                containerColor =  Color(0xFF691BB9)
+            ),
 
+        ) { }
+        Column {
+            Column {
+                Text(
+                    text = stringResource(R.string.Login),
+                    fontSize = 48.sp,
+                    color = Color(0xFF691BB9)
+                )
+                Text(
+                    text = stringResource(R.string.Login),
+                    fontSize = 24.sp,
+                    color = Color(0xFF6E6E6E)
+                )
+            }
+            Column {
+                OutlinedTextField(
+                    value = "",
+                    onValueChange = {},
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    label = {
+                        Text(
+                            text = stringResource(R.string.whatname)
+                        )
+                    }
+                )
+                OutlinedTextField(
+                    value = "",
+                    onValueChange = {},
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(16.dp),
+                    label = {
+                        Text(
+                            text = stringResource(R.string.whatname)
+                        )
+                    }
+                )
+                Button(
+                    onClick = {},
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF691BB9)
+                    )
+
+                ) {
+                    Text(
+                        text = stringResource(R.string.next)
+                    )
+                    Icon(
+                        imageVector = Icons.Filled.ArrowForward,
+                        contentDescription = ""
+                    )
+                }
+            }
+            Row {
+                Text(
+                    text = stringResource(R.string.Login),
+                    fontSize = 24.sp,
+                    color = Color(0xFF6E6E6E)
+                )
+                Text(
+                    text = stringResource(R.string.Login),
+                    fontSize = 24.sp,
+                    color = Color(0xFF691BB9)
+                )
+            }
+        }
+        Card(
+            modifier = Modifier
+                .width(50.dp)
+                .height(50.dp),
+            shape = RoundedCornerShape(
+                topEnd = 10.dp
+            ),
+            colors = CardDefaults.cardColors(
+                containerColor =  Color(0xFF691BB9)
+            )
+        ) { }
     }
 }
 
