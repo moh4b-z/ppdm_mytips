@@ -52,6 +52,6 @@ fun TelaLogin(
 
 @Preview(showSystemUi = true)
 @Composable
-private fun TelaInicalPreview() {
+private fun TelaLoginPreview() {
     TelaLogin()
 }
